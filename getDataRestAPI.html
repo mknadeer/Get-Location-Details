@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Show Location Stats">
+        <div class="slds-var-m-around_large">
+            <!-- * Input Latitude and Longitude -->
+            <lightning-layout vertical-align="end">
+                <lightning-layout-item flexibility="grow">
+                    <lightning-input type="search" value={latitude} onchange={updateLatitude} label="Enter Latitude"></lightning-input>
+                    <lightning-input type="search" value={longitude} onchange={updateLongitude} label="Enter Longitude"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-var-p-left_small">
+                    <lightning-button label="Search" variant="brand" onclick={getLocation}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+            <br />
+            <!-- * Display Location Details -->
+            <div if:true={locationPopulated}>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Country Code : </b> {Info.country_code}</a></div>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Timezone : </b>{Info.timezone_id}</a></div>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Latitude : </b> {Info.latitude}</div>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Longitude : </b> {Info.longitude}</div>
+                <div class="slds-var-p-vertical_xxx-small slds-text-heading_small"><b>Map Url : </b> {Info.map_url}</div>
+            </div>
+        </div>
+    </lightning-card>    
+</template>
